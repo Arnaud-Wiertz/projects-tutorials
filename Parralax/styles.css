@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+}
+
+.wrapper {
+  /* scrolling the wrapper instead of the <body>*/
+  height: 100vh; /* wrapper takes all screen and therefore acts as the <body> */
+  overflow-y: auto;
+  overflow-x: hidden; /*no horizontal scrollbar*/
+
+  /*setting up parallax - give a 3D effect*/
+  perspective: 10px; /*other values will have to be relative to this value: 10px*/
+}
+
+header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /*takes the screen's height*/
+  transform-style: preserve-3d;
+  z-index: -1;
+}
+
+.background {
+  transform: translateZ(-10px) scale(2); /*why 10px? see perspective*/
+}
+
+.foreground {
+  transform: translateZ(-5px) scale(1.5);
+}
+
+.background,
+.foreground {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover; /*image ratio is adjusted while filling in the box*/
+  z-index: -1;
+}
+
+.title {
+  font-size: 7rem;
+  color: white;
+  text-shadow: 0 0 5px black;
+}
+
+section {
+  font-size: 2rem;
+  padding: 2rem;
+  background-color: #333;
+  color: white;
+}
